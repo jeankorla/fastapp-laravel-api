@@ -13,16 +13,16 @@ class CreateTransactionTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_bank_account');
+            $table->string('id_bank_account');
             $table->string('type');
             $table->decimal('amount', 8, 2);
             $table->string('description');
             $table->datetime('transaction_at');
-            $table->unsignedBigInteger('id_transaction_category');
-            $table->unsignedBigInteger('id_transaction_method');
-            $table->unsignedBigInteger('id_transaction_type');
+            $table->string('id_transaction_category');
+            $table->string('id_transaction_method');
+            $table->string('id_transaction_type');
             $table->timestamps();
         });
     }
@@ -35,5 +35,6 @@ class CreateTransactionTable extends Migration
     public function down()
     {
         Schema::dropIfExists('transactions');
+        //teste
     }
 }
