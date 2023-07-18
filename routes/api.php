@@ -27,3 +27,5 @@ Route::get('/database-check', function (Request $request) {
         return response()->json(['message' => 'Database connection failed', 'error' => $e->getMessage()], 500);
     }
 });
+
+Route::resource('transaction', 'App\Http\Controllers\TransactionController');
